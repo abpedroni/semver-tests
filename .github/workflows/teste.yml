@@ -23,9 +23,6 @@ jobs:
         uses: gittools/actions/gitversion/setup@v0.9.7
         with:
           versionSpec: '5.x'
-      - name: teste
-        run: |
-          ls -alf ${{ github.workspace }}
           
       - name: Determine Version
         id: gitversion
@@ -33,6 +30,8 @@ jobs:
         with:
           useConfigFile: true
           configFilePath: ${{ github.workspace }}/GitVersion.yml
+          updateAssemblyInfo: true
+          updateAssemblyInfoFilename: ${{ github.workspace }}/version.yml
 
       - name: Display GitVersion outputs
         run: |
@@ -69,6 +68,16 @@ jobs:
           echo "CommitsSinceVersionSourcePadded: ${{ steps.gitversion.outputs.commitsSinceVersionSourcePadded }}"
           echo "UncommittedChanges: ${{ steps.gitversion.outputs.uncommittedChanges }}"
           echo "CommitDate: ${{ steps.gitversion.outputs.commitDate }}"
+  display-semver:
+    name: Display Semantic Version
+    runs-on: ubuntu-latest
+    needs: calculate-version
+    env:
+      SEMVER: ${{ needs.calculate-version.outputs.semVer }}
+    steps:
+      - name: Display version
+        run: |
+          echo SemVer: $SEMVER
 
   create-release-notes:
     name: Create Release Notes
