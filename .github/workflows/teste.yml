@@ -15,18 +15,6 @@ jobs:
       branchName: ${{ steps.gitversion.outputs.branchName }} # To use an output in another job, you have to map it to a job output.
       semVer: ${{ steps.gitversion.outputs.semVer }}
     steps:
-      - name: log untrusted output
-        run: |
-
-          # disable command workflow processing
-          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-
-          # log untrusted output
-          echo "untrusted output"
-
-          # enable workflow command processing
-          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
-          
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@master
         with:
@@ -45,16 +33,6 @@ jobs:
           configFilePath: ${{ github.workspace }}/GitVersion.yml
           # updateAssemblyInfo: true
           additionalArguments: '/updateprojectfiles'
-
-      - uses: gittools/actions/gitreleasemanager/create@v0.9.2
-        name: Publish release with GitReleaseManager
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          owner: 'abpedroni'
-          repository: 'semver-tests'
-          milestone: '${{ steps.gitversion.outputs.semVer }}'
-          name: 'v${{ steps.gitversion.outputs.semVer }}'
-
 
       # - name: Display GitVersion outputs
       #   run: |
