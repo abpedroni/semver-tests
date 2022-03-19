@@ -14,6 +14,8 @@ jobs:
     outputs:
       branchName: ${{ steps.gitversion.outputs.branchName }} # To use an output in another job, you have to map it to a job output.
     steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@master
       # gitversion/execute step omitted for brevity
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.7
