@@ -49,7 +49,7 @@ branches:
     increment: Patch
     # prevent-increment-of-merged-branch-version: false
     # track-merge-target: false
-    # source-branches: [ 'develop', 'master' ]
+    source-branches: [ 'develop', 'master' ]
     # tracks-release-branches: false
     # is-release-branch: false
     # is-mainline: false
@@ -59,7 +59,7 @@ branches:
     increment: Major
     # prevent-increment-of-merged-branch-version: false
     # track-merge-target: false
-    # source-branches: [ 'develop', 'master' ]
+    source-branches: [ 'develop', 'master' ]
     # tracks-release-branches: false
     # is-release-branch: false
     # is-mainline: false
