@@ -19,6 +19,9 @@ jobs:
         uses: gittools/actions/gitversion/setup@v0.9.7
         with:
           versionSpec: '5.x'
+      - name: teste
+        run: |
+          ls -alf ${{ github.workspace }}
           
       - name: Determine Version
         id: gitversion
