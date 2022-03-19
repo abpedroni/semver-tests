@@ -24,7 +24,7 @@ branches:
   feature:
     regex: ^features?[/-]
     tag: feat
-    # increment: Inherit
+    increment: Inherit
     # prevent-increment-of-merged-branch-version: false
     # track-merge-target: false
     source-branches: [ 'develop', 'master', 'release', 'feature', 'hotfix' ]
@@ -46,7 +46,17 @@ branches:
   hotfix:
     regex: ^hotfix(es)?[/-]
     tag: beta
-    # increment: Patch
+    increment: Patch
+    # prevent-increment-of-merged-branch-version: false
+    # track-merge-target: false
+    # source-branches: [ 'develop', 'master' ]
+    # tracks-release-branches: false
+    # is-release-branch: false
+    # is-mainline: false
+  break:
+    regex: ^break$
+    tag: ''
+    increment: Major
     # prevent-increment-of-merged-branch-version: false
     # track-merge-target: false
     # source-branches: [ 'develop', 'master' ]
