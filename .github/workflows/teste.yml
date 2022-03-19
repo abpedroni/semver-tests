@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       branchName: ${{ steps.gitversion.outputs.branchName }} # To use an output in another job, you have to map it to a job output.
+      semVer: ${{ steps.gitversion.outputs.semVer }}
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@master
@@ -33,14 +34,15 @@ jobs:
           # updateAssemblyInfo: true
           additionalArguments: '/updateprojectfiles'
 
-      - uses: gittools/actions/gitreleasemanager/publish@v0.9.2
+      - uses: gittools/actions/gitreleasemanager/create@v0.9.2
         name: Publish release with GitReleaseManager
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           owner: 'abpedroni'
           repository: 'semver-tests'
-          tagName: '${{ steps.gitversion.outputs.semVer }}'
-          
+          milestone: '${{ steps.gitversion.outputs.semVer }}'
+          name: 'v${{ steps.gitversion.outputs.semVer }}'
+
       # - name: Display GitVersion outputs
       #   run: |
       #     echo "SemVer: $GITVERSION_SEMVER"
