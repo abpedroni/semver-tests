@@ -7,11 +7,11 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <VersionPrefix>1.0.0-rc1</VersionPrefix>
-    <Version>1.0.0</Version>
-    <AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">1.0.0</AssemblyVersion>
+    <VersionPrefix>0.4.3-rc1</VersionPrefix>
+    <Version>0.4.3</Version>
+    <AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.4.3</AssemblyVersion>
     <AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
-    <Version Condition=" '$(VersionSuffix)' == '' ">1.0.0</Version>
+    <Version Condition=" '$(VersionSuffix)' == '' ">0.4.3</Version>
     <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
   </PropertyGroup>
 
