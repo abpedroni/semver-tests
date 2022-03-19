@@ -53,7 +53,7 @@ branches:
     # tracks-release-branches: false
     # is-release-branch: false
     # is-mainline: false
-major-version-bump-message: "^(break)(\\([\\w\\s-]*\\))?:"
+major-version-bump-message: "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\\([\\w\\s-]*\\))?(!:|:.*\\n\\n((.+\\n)+\\n)?BREAKING CHANGE:\\s.+)"
 minor-version-bump-message: "^(feat)(\\([\\w\\s-]*\\))?:"
 patch-version-bump-message: "^(build|chore|ci|docs|fix|perf|refactor|revert|style|test)(\\([\\w\\s-]*\\))?:"
 ignore:
