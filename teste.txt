@@ -1,5 +1,1 @@
-teste
-2
-3
-new feature 2
-222
+feature minor
