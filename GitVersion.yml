@@ -1,0 +1,60 @@
+branches:
+  master:
+    regex: ^master$|^main$
+    mode: Mainline
+    tag: ''
+    increment: Patch
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    source-branches: [ 'develop', 'release' ]
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: true
+  release:
+    regex: ^releases?[/-]
+    mode: Mainline
+    tag: beta
+    increment: None
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    source-branches: [ 'develop', 'master', 'release' ]
+    tracks-release-branches: false
+    is-release-branch: true
+    is-mainline: false
+  feature:
+    regex: ^features?[/-]
+    mode: Mainline
+    tag: useBranchName
+    increment: Inherit
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false
+    source-branches: [ 'develop', 'master', 'release', 'feature', 'hotfix' ]
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: false
+  pull-request:
+    regex: ^(pull|pull\-requests|pr)[/-]
+    mode: Mainline
+    tag: PullRequest
+    increment: Inherit
+    prevent-increment-of-merged-branch-version: false
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+    track-merge-target: false
+    source-branches: [ 'develop', 'master', 'release', 'feature', 'hotfix' ]
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: false
+  hotfix:
+    regex: ^hotfix(es)?[/-]
+    mode: Mainline
+    tag: beta
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false
+    source-branches: [ 'develop', 'master' ]
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: false
+ignore:
+  sha: []
+merge-message-formats: {}
