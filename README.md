@@ -1,3 +1,2 @@
 # semver-tests
-break
- 1
+feature nova
