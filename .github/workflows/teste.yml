@@ -31,7 +31,7 @@ jobs:
           useConfigFile: true
           configFilePath: ${{ github.workspace }}/GitVersion.yml
           updateAssemblyInfo: true
-          additionalArguments: '/updateprojectfiles'
+          # additionalArguments: '/updateprojectfiles'
 
       # - name: Display GitVersion outputs
       #   run: |
